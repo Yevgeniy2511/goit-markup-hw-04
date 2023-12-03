@@ -100,6 +100,7 @@ color: #2E2F42;
     color: #404BBF;
 }
 .menu-link {
+    position: relative;
     display: block;
     color: #2E2F42;
     font-size: 16px;
@@ -108,7 +109,19 @@ color: #2E2F42;
     letter-spacing: 0.02em;
     padding-top: 24px;
     padding-bottom: 24px;
-} .address-header {
+}
+.studio-after::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 48px;
+    height: 4px;
+    background-color: #404BBF;
+    border-radius: 2px;
+    content: "";
+}
+ .address-header {
 justify-content: flex-end;
 }
 .address-list {
@@ -133,8 +146,13 @@ color: #404BBF ;
 /* Order Section One */
 
 .sect-one-solutions {
+
     background-color: #2E2F42;
     padding: 188px 0;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.70), 
+    rgba(46, 47, 66, 0.70)), 
+    url("../images/people-office.jpg");
+    background-size: cover;
 }
 .sect-one-head {
     color: #FFFFFF;
@@ -180,14 +198,27 @@ letter-spacing: 0.04em;
     padding-top: 120px;
     padding-bottom: 120px;
 }
+
 .benef-list {
 display: flex;
 align-items: stretch;
 flex-wrap: wrap;
 align-content: stretch;
-gap: 24px;
-/* width: calc((100%-72px)/4) */
+gap: 0 24px;
 }
+
+.container-icons {
+    display: flex;
+    width: 264px;
+    height: 112px;
+    border: 1px solid #8E8F99;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #F4F4FD;
+    align-items: center;
+    justify-content: center;
+}
+
 .benef-list-item {
     width: 264px;
     
@@ -257,9 +288,22 @@ background-color: #FFFFFF;
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: 0.02em;
-        /* row-gap: 32px; */
-        text-align: center;   
+        text-align: center;  
+        margin-bottom: 8px;    
 }
+.team-icon-group-container {
+    display: flex;
+    column-gap: 24px;
+}
+  .team-icon-container {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4D5AE5;
+    justify-content: center;
+        align-items: center;
+  }
 
 /* Portfolio Section Four */
 
@@ -288,22 +332,53 @@ padding-bottom: 120px;
     gap: 48px 24px;
 }
 .portf-list-item {
-    display: flex;
+    display: inline-flex;
         width: 360px;
         height: 420px;
         flex-direction: column;
         align-items: flex-start;
+        
+
 }
+.overlay-container {
+    position: relative;
+    width: 360px;
+    height: 300px;
+overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4D5AE5;
+    width: 360px;
+    height: 300px;
+    padding: 40px 32px;
+    overflow: auto;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #F4F4FD;
+}
+
+.portf-list-item:hover .overlay {
+    transform: translateY(0px);
+}
+
 .portf-descr-container {
     width: 360px;
     padding: 32px 16px;
     border: 1px solid #e7e9fc;
 border-top: none;
-margin-bottom: 8px
-
+border-radius: 0 0 4px 4px;
 }
 .portf-description {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     color: #2E2F42;
     font-size: 20px;
     font-weight: 500;
@@ -317,6 +392,8 @@ margin-bottom: 8px
     letter-spacing: 0.02em;
 }
 
+
+
 /* Footer */
 
  .page-footer {
@@ -325,8 +402,9 @@ margin-bottom: 8px
         margin-right: auto;
         margin-left: auto;
         padding: 100px 0;
-
-
+ }
+ .logo-footer-container {
+    display: flex;
  }
  .logo-footer {
     display: inline-block;
@@ -343,12 +421,23 @@ margin-bottom: 8px
  .logo-footer:hover,
  .logo-footer:focus {
      color: #404BBF;
-     /* padding-top: 100px; */
  }
- .logo-footer-st {
-   
-    color: #f4f4fd;
-    
+ .logo-footer-st { 
+    color: #f4f4fd; 
+ }
+ .social-media-inscription {
+    font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.5;
+        /* 150% */
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+        margin-left: 269px;
+ }
+ .slogan-icons-container {
+    display: flex;
  }
  .footer-slogan {
     width: 264px;
@@ -356,10 +445,33 @@ margin-bottom: 8px
      font-size: 16px;
      line-height: 1.5;
      letter-spacing: 0.02em;
-    /* padding-top: 16px; */
+ }
+ .footer-icon-group-container {
+     display: flex;
+     column-gap: 16px;
+     margin-left: 120px;
+ }
+ .footer-icon-container {
+     display: flex;
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     background-color: #4D5AE5;
+     justify-content: center;
+     align-items: center;
+
+     transition: background-color 250ms 
+     cubic-bezier(0.4, 0, 0.2, 1);
+     /* transition-property: background-color;
+     transition-duration: 250ms;
+     transition-timing-function: 
+     cubic-bezier(0.4, 0, 0.2, 1);
+     transition-delay: 0; */
+ }
+ .footer-icon-container:hover,
+ .footer-icon-container:focus {
+    background-color: #31D0AA;
  }
 
 
-        
-               
 
